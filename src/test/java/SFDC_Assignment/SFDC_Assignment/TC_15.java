@@ -1,5 +1,7 @@
 package SFDC_Assignment.SFDC_Assignment;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,11 +15,15 @@ public class TC_15 extends SfBrowserUtility {
      	waitForPageElementToVisible(driver.findElement(By.id("Opportunity_Tab")));
      	driver.findElement(By.id("Opportunity_Tab")).click();
      	//driver.findElement(By.xpath("//select[@id='00B5w00000D6tfW_listSelect']"));
-     	WebElement opportunity = driver.findElement(By.id("//select[@name='fcf']"));
-		Select optdropdown = new Select(opportunity);
-		optdropdown.selectByValue("00B5w00000D6thG");;
-     	
-     	//driver.findElement(By.xpath("//select[@id='00B5w00000D6tfW_listSelect']")).getText();
+     //	WebElement Opportunities = driver.findElement(By.id("//select[@id='fcf']"));
+     	//Opportunities.click();
+		Select optdropdown = new Select(driver.findElement(By.xpath("//select[@id='fcf']")));
+		List <WebElement> optdd = optdropdown.getOptions();
+		System.out.println(optdd.size());
+		
+		/*for (int i =0; i< optdd.size(); i++) {
+			System.out.println(optdd.get(i).getText());
+		}*/
 	}
 
 }
